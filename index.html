@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bytecraft | Web apps, backend, automation and DevOps</title>
+<meta name="description" content="Bytecraft is a full-stack software team: React, Spring Boot, .NET, PHP, RPA (UiPath, Automation Anywhere) and DevOps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080D26;--bg2:#0E1538;--ink:#F2F4FF;--mute:#9BA6D1;--line:rgba(160,175,255,.18);--card:rgba(255,255,255,.04);--blue:#4B63FF;--coral:#FF7A59;--mint:#3DDBB0;
+--d:'Unbounded','Segoe UI',Arial,sans-serif;--b:'DM Sans','Segoe UI',Arial,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--b);overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+.w{max-width:1120px;margin:0 auto;padding:0 22px;position:relative}
+h1,h2,h3{font-family:var(--d);font-weight:700;line-height:1.15;letter-spacing:-.02em}
+h2{font-size:clamp(26px,4.6vw,40px);margin-bottom:14px}
+.lead{color:var(--mute);max-width:58ch;margin-bottom:40px}
+section{padding:84px 0;position:relative}
+/* nav */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:rgba(8,13,38,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .w{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font:700 20px var(--d);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo svg{width:30px;height:30px}
+.nav nav a{font-size:15px;text-decoration:none;margin-left:26px;color:var(--mute);transition:color .2s}
+.nav nav a:hover{color:#fff}
+.btn{display:inline-block;padding:14px 26px;border-radius:99px;font:700 15px var(--b);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.p{background:linear-gradient(135deg,var(--blue),#7A5BFF);color:#fff;box-shadow:0 10px 30px -8px rgba(75,99,255,.7)}
+.btn.s{border-color:var(--line);color:#fff;background:var(--card)}
+.nav .btn{padding:10px 20px;margin-left:26px}
+/* hero */
+.hero{padding:150px 0 90px;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none}
+.b1{width:420px;height:420px;background:var(--blue);top:-120px;left:-120px;animation:fl 14s ease-in-out infinite}
+.b2{width:360px;height:360px;background:var(--coral);opacity:.28;bottom:-140px;right:-60px;animation:fl 17s ease-in-out infinite reverse}
+@keyframes fl{50%{transform:translate(50px,40px) scale(1.1)}}
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(34px,5.6vw,60px);margin-bottom:22px}
+.grad{background:linear-gradient(90deg,#8FA0FF,var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mute);font-size:19px;max-width:48ch}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+.badges span{font-size:14px;padding:6px 14px;border:1px solid var(--line);border-radius:99px;color:var(--mute);background:var(--card)}
+.viz{background:linear-gradient(160deg,rgba(75,99,255,.16),rgba(255,255,255,.03));border:1px solid var(--line);border-radius:24px;padding:14px;position:relative;box-shadow:0 30px 80px -30px rgba(75,99,255,.6)}
+.viz svg{width:100%;height:auto;display:block}
+.toast{position:absolute;right:-6px;bottom:-22px;background:#121A45;border:1px solid var(--line);border-radius:14px;padding:11px 16px;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 14px 40px -12px #000}
+.toast i{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 var(--mint);animation:pu 1.8s infinite}
+@keyframes pu{70%{box-shadow:0 0 0 10px transparent}}
+.dash{stroke-dasharray:6 7;animation:dm 1.4s linear infinite}
+@keyframes dm{to{stroke-dashoffset:-26}}
+.orb{position:relative;width:min(100%,430px);aspect-ratio:1;margin:0 auto}
+.ring{position:absolute;border:1px dashed rgba(160,175,255,.35);border-radius:50%;animation:spin 40s linear infinite}
+.o1{inset:0}.o2{inset:24%;animation-duration:26s;animation-direction:reverse}
+.ring span{position:absolute;transform:translate(-50%,-50%);animation:unspin 40s linear infinite;background:#121A45;border:1px solid #3B4A9E;border-radius:99px;padding:7px 14px;font:700 13px var(--b);white-space:nowrap;box-shadow:0 8px 24px -8px rgba(75,99,255,.7)}
+.o2 span{animation:unspin 26s linear infinite;animation-direction:reverse;border-color:#FF7A59}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes unspin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
+.core{position:absolute;inset:38%;border-radius:28%;background:linear-gradient(135deg,var(--blue),var(--coral));display:grid;place-items:center;box-shadow:0 0 70px rgba(75,99,255,.7);animation:pu2 4s ease-in-out infinite}
+.core svg{width:52%}
+@keyframes pu2{50%{transform:scale(1.07)}}
+/* marquee */
+.mq{border-block:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:20px 0}
+.mt{display:flex;gap:56px;width:max-content;animation:mq 32s linear infinite;font:700 16px var(--d);color:var(--mute);white-space:nowrap}
+.mt span{opacity:.85}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* rpa */
+.uses{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-6px);border-color:rgba(143,160,255,.55)}
+.ic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;background:linear-gradient(135deg,rgba(75,99,255,.35),rgba(255,122,89,.25))}
+.ic svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:17px;margin-bottom:10px}
+.card p{color:var(--mute);font-size:16px}
+.rpa{background:linear-gradient(180deg,var(--bg),var(--bg2))}
+.cmp{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.cmp span{padding:10px 20px;border-radius:99px;font-weight:700;font-size:15px;border:1px solid var(--line);background:var(--card)}
+.cmp span:nth-child(1){border-color:#FA6B33;color:#FFB08F}
+.cmp span:nth-child(2){border-color:#6B8BFF;color:#B4C3FF}
+.cmp span:nth-child(3){border-color:#3DDBB0;color:#9BF0D6}
+.cmp span:nth-child(4){border-color:var(--line)}
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+/* work */
+.shot{height:170px;border-radius:14px;margin-bottom:20px;background:#0A1030;border:1px solid var(--line);padding:14px;display:flex;align-items:flex-end;gap:9px;overflow:hidden;position:relative}
+.shot b{flex:1;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--blue),#7A5BFF);height:0;transition:height 1.1s cubic-bezier(.2,.8,.2,1)}
+.in .shot b{height:var(--h)}
+.shot.o b{background:linear-gradient(180deg,var(--coral),#FFB04D)}
+.rows{flex-direction:column;align-items:stretch;justify-content:center;gap:11px}
+.rows b{height:14px!important;flex:none;border-radius:99px;width:0;background:linear-gradient(90deg,var(--mint),#4BC7FF);transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.in .rows b{width:var(--h)}
+.stg{display:flex;align-items:center;justify-content:space-between;width:100%}
+.stg i{font-style:normal;font-size:13px;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid var(--line)}
+.stg u{flex:1;height:2px;margin:0 6px;background:repeating-linear-gradient(90deg,var(--mint) 0 6px,transparent 6px 12px);animation:dm 1.2s linear infinite;background-size:12px 2px}
+.small{margin-top:14px;font-size:14px;color:#B4C3FF}
+/* process */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+.tl:before{content:"";position:absolute;top:22px;left:5%;right:5%;height:2px;background:linear-gradient(90deg,var(--blue),var(--coral));opacity:.5}
+.tl div{position:relative;padding-top:58px}
+.tl em{position:absolute;top:0;left:0;width:46px;height:46px;border-radius:50%;background:var(--bg);border:2px solid var(--blue);display:grid;place-items:center;font:700 16px var(--d);font-style:normal}
+.tl h3{font-size:16px;margin-bottom:8px}
+.tl p{color:var(--mute);font-size:15.5px}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.why div{padding:20px 22px;border-left:3px solid var(--coral);background:var(--card);border-radius:0 14px 14px 0}
+.why b{display:block;font-family:var(--d);font-size:15px;margin-bottom:4px}
+.why span{color:var(--mute);font-size:15.5px}
+/* contact */
+.cta{background:linear-gradient(135deg,#1A2A9A,#4B2FB8);border-radius:28px;padding:56px 40px;overflow:hidden;position:relative}
+.cta .grid2{grid-template-columns:1fr 1fr;align-items:start}
+form{display:grid;gap:12px}
+label{font-size:14px;color:#D6DDFF}
+input,textarea{width:100%;font:inherit;color:#fff;background:rgba(8,13,38,.55);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:13px 14px;margin-top:5px}
+.cta .btn.p{background:var(--coral);box-shadow:0 10px 30px -8px rgba(255,122,89,.8);justify-self:start}
+.links{display:grid;gap:12px;margin-top:26px}
+.links a{text-decoration:none;padding:14px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.07)}
+footer{padding:30px 0;color:var(--mute);font-size:14px;text-align:center}
+/* reveal */
+.js .r{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}
+.js .r.in{opacity:1;transform:none}
+@media (max-width:860px){.grid2,.cta .grid2{grid-template-columns:1fr}.nav nav a{display:none}.nav .btn{margin-left:0}.tl{grid-template-columns:1fr 1fr}.tl:before{display:none}.cta{padding:36px 22px}.toast{right:8px}}
+@media (max-width:520px){.tl{grid-template-columns:1fr}section{padding:64px 0}.hero{padding-top:120px}}
+@media (prefers-reduced-motion:reduce){*,*:before{animation:none!important;transition:none!important}.js .r{opacity:1;transform:none}.shot b{height:var(--h)}.rows b{width:var(--h)}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="w">
+<a class="logo" href="#top" aria-label="Bytecraft home"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#4B63FF"/><path d="M9 9h8a4 4 0 010 7H9m0 0h9a4 4 0 010 7H9V9z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/></svg>Bytecraft</a>
+<nav><a href="#stack">Stack</a><a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a class="btn p" href="#contact">Get a quote</a></nav>
+</div></header>
+
+<main>
+<section class="hero" id="top">
+<div class="blob b1"></div><div class="blob b2"></div>
+<div class="w grid2">
+<div>
+<h1>One team for your <span class="grad">web app, backend, bots and cloud.</span></h1>
+<p>Bytecraft is a small full-stack company. We build with React, Spring Boot, .NET and PHP, automate manual work with UiPath, and ship it all with DevOps.</p>
+<div class="btns"><a class="btn p" href="#contact">Get a free estimate</a><a class="btn s" href="#work">See our work</a></div>
+</div>
+<div class="orb" role="img" aria-label="Technologies Bytecraft works with, orbiting the Bytecraft logo">
+<div class="ring o1"><span style="left:100%;top:50%">React</span><span style="left:65.5%;top:97.6%">Spring Boot</span><span style="left:9.6%;top:79.4%">.NET</span><span style="left:9.6%;top:20.6%">PHP</span><span style="left:65.5%;top:2.4%">Azure</span></div>
+<div class="ring o2"><span style="left:50%;top:100%">Docker</span><span style="left:6.7%;top:75%">UiPath</span><span style="left:93.3%;top:75%">AWS</span></div>
+<div class="core"><svg viewBox="0 0 32 32"><path d="M9 9h8a4 4 0 010 7H9m0 0h9a4 4 0 010 7H9V9z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/></svg></div>
+</div>
+</div>
+</section>
+
+<div class="mq" aria-hidden="true"><div class="mt">
+<span>UiPath</span><span>Automation Anywhere</span><span>Power Automate</span><span>Java</span><span>Spring Boot</span><span>.NET</span><span>React</span><span>PHP</span><span>Docker</span><span>Jenkins</span><span>AWS</span><span>Azure</span>
+<span>UiPath</span><span>Automation Anywhere</span><span>Power Automate</span><span>Java</span><span>Spring Boot</span><span>.NET</span><span>React</span><span>PHP</span><span>Docker</span><span>Jenkins</span><span>AWS</span><span>Azure</span>
+</div></div>
+
+<section class="rpa" id="stack"><div class="w">
+<h2 class="r">Tools we build with</h2>
+<p class="lead r">Proven stacks that are easy to maintain and easy to hire for later.</p>
+<div class="uses">
+<div class="card r"><h3>Frontend</h3><p>React, JavaScript, PHP, responsive and fast on mobile.</p></div>
+<div class="card r"><h3>Backend</h3><p>Java Spring Boot, .NET, REST APIs, PostgreSQL, MySQL.</p></div>
+<div class="card r"><h3>Automation</h3><p>UiPath, Automation Anywhere, Power Automate for bots that replace manual work.</p></div>
+<div class="card r"><h3>DevOps and cloud</h3><p>Docker, Jenkins, GitHub Actions, AWS and Azure.</p></div>
+</div></div></section>
+
+<section id="services"><div class="w">
+<h2 class="r">What we do</h2>
+<p class="lead r">Pick one service or hire us for the whole build. Either way you talk to one team.</p>
+<div class="svc">
+<div class="card r"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></div><h3>Web development</h3><p>Websites, dashboards and customer portals in React and PHP.</p></div>
+<div class="card r"><div class="ic"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div><h3>Backend and APIs</h3><p>Secure business logic and integrations in Java Spring Boot and .NET.</p></div>
+<div class="card r"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-3-6.7M21 4v5h-5"/></svg></div><h3>DevOps and cloud</h3><p>CI/CD, Docker, AWS and Azure setup, monitoring and backups.</p></div>
+<div class="card r"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.5-.5-.5-2.5z"/></svg></div><h3>RPA and UI automation</h3><p>UiPath and Automation Anywhere bots for data entry, invoices, reports and email handling.</p></div>
+<div class="card r"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 4.5a3.5 3.5 0 010 7M18 14a6 6 0 013.5 6"/></svg></div><h3>Support and dedicated team</h3><p>Maintenance plans, or developers who work as part of your team month to month.</p></div>
+<div class="card r"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V7z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><h3>White-label delivery</h3><p>Agencies hand us the build, we deliver under their brand with NDA.</p></div>
+</div></div></section>
+
+<section id="work" style="padding-top:20px"><div class="w">
+<h2 class="r">Selected work</h2>
+<p class="lead r">Demo builds that show how we work. Swap in real client projects as you land them.</p>
+<div class="svc">
+<div class="card r"><div class="shot" aria-hidden="true"><b style="--h:38%"></b><b style="--h:62%"></b><b style="--h:48%"></b><b style="--h:82%"></b><b style="--h:66%"></b><b style="--h:94%"></b><b style="--h:76%"></b></div><h3>Business dashboard</h3><p>Role-based admin panel with live charts, exports and secure login.</p><div class="small">React, Spring Boot, PostgreSQL</div></div>
+<div class="card r"><div class="shot rows" aria-hidden="true"><b style="--h:92%"></b><b style="--h:74%"></b><b style="--h:86%"></b><b style="--h:58%"></b></div><h3>Invoice-to-ERP bot</h3><p>Reads supplier invoices from email, validates them and posts to the ERP. Exceptions go to a human queue.</p><div class="small">UiPath, Orchestrator, Python</div></div>
+<div class="card r"><div class="shot o" style="align-items:center;font:700 14px var(--b);color:#FFD9CC;justify-content:center;gap:10px" aria-hidden="true">GET /orders &nbsp;200 OK<br>POST /payments &nbsp;201</div><h3>Orders and payments API</h3><p>Secure REST backend with authentication, logging and automated tests, ready for web and mobile apps.</p><div class="small">.NET, SQL Server, Azure</div></div>
+<div class="card r"><div class="shot o" style="align-items:center" aria-hidden="true"><div class="stg"><i>Commit</i><u></u><i>Build</i><u></u><i>Test</i><u></u><i>Live</i></div></div><h3>One-click deploy pipeline</h3><p>Every push is built, tested and released to the cloud with automatic rollback.</p><div class="small">Jenkins, Docker, AWS</div></div>
+</div></div></section>
+
+<section id="process" style="padding-top:20px"><div class="w">
+<h2 class="r">How we work</h2>
+<p class="lead r">A fixed routine so you always know what happens next.</p>
+<div class="tl">
+<div class="r"><em>1</em><h3>Process call</h3><p>We map the task step by step and check it suits automation.</p></div>
+<div class="r"><em>2</em><h3>Fixed estimate</h3><p>Clear scope, milestones and price. 50% advance to start.</p></div>
+<div class="r"><em>3</em><h3>Build and test</h3><p>Weekly demos. Every release is code-reviewed and tested.</p></div>
+<div class="r"><em>4</em><h3>Go live</h3><p>Deployment, handover docs and 30 days of free support.</p></div>
+</div></div></section>
+
+<section style="padding-top:20px"><div class="w">
+<h2 class="r">Why Bytecraft</h2>
+<p class="lead r">What you get from a small team that cares about the result.</p>
+<div class="why">
+<div class="r"><b>Full stack plus DevOps</b><span>No hand-offs between vendors.</span></div>
+<div class="r"><b>Milestone payments</b><span>You pay as work is delivered.</span></div>
+<div class="r"><b>NDA by default</b><span>Your data and process stay private.</span></div>
+<div class="r"><b>You own the code</b><span>Full handover on final payment.</span></div>
+</div></div></section>
+
+<section id="contact" style="padding-top:20px"><div class="w">
+<div class="cta r"><div class="grid2">
+<div><h2>Tell us what to build</h2><p style="color:#D6DDFF;max-width:40ch">Describe your project in a few lines. We reply within one working day with questions and a rough estimate.</p>
+<div class="links"><a href="https://wa.me/91XXXXXXXXXX">WhatsApp us</a><a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a><a href="https://calendly.com/your-link">Book a 15-minute call</a></div></div>
+<form id="f">
+<label>Your name<input name="n" required autocomplete="name"></label>
+<label>Email<input name="e" type="email" required autocomplete="email"></label>
+<label>What do you need?<textarea name="m" rows="4" required></textarea></label>
+<button class="btn p" type="submit">Send request</button>
+</form>
+</div></div>
+</div></section>
+</main>
+<footer>© 2026 Bytecraft. All rights reserved.</footer>
+<script>
+document.documentElement.classList.add('js');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.r').forEach(function(el,i){el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
+document.getElementById('f').addEventListener('submit',function(x){x.preventDefault();var d=new FormData(this);
+location.href='mailto:hello@yourdomain.com?subject='+encodeURIComponent('Quote request from '+d.get('n'))+'&body='+encodeURIComponent(d.get('m')+'\n\nReply to: '+d.get('e'));});
+</script>
+</body>
+</html>

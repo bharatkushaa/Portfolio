@@ -208,12 +208,12 @@ footer{padding:30px 0;color:var(--mute);font-size:14px;text-align:center}
 <section id="contact" style="padding-top:20px"><div class="w">
 <div class="cta r"><div class="grid2">
 <div><h2>Tell us what to build</h2><p style="color:#D6DDFF;max-width:40ch">Describe your project in a few lines. We reply within one working day with questions and a rough estimate.</p>
-<div class="links"><a href="https://wa.me/91XXXXXXXXXX">WhatsApp us</a><a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a><a href="https://calendly.com/your-link">Book a 15-minute call</a></div></div>
+</div>
 <form id="f">
 <label>Your name<input name="n" required autocomplete="name"></label>
 <label>Email<input name="e" type="email" required autocomplete="email"></label>
 <label>What do you need?<textarea name="m" rows="4" required></textarea></label>
-<button class="btn p" type="submit">Send request</button>
+<button class="btn p" type="submit">Send request</button><p id="st" role="status" style="color:#FFD9CC;font-size:15px"></p>
 </form>
 </div></div>
 </div></section>
@@ -223,8 +223,11 @@ footer{padding:30px 0;color:var(--mute);font-size:14px;text-align:center}
 document.documentElement.classList.add('js');
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
 document.querySelectorAll('.r').forEach(function(el,i){el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
-document.getElementById('f').addEventListener('submit',function(x){x.preventDefault();var d=new FormData(this);
-location.href='mailto:hello@yourdomain.com?subject='+encodeURIComponent('Quote request from '+d.get('n'))+'&body='+encodeURIComponent(d.get('m')+'\n\nReply to: '+d.get('e'));});
+var TO=''; /* yahan apna email daalna: var TO='you@example.com'; */
+document.getElementById('f').addEventListener('submit',function(x){x.preventDefault();
+if(!TO){document.getElementById('st').textContent='Contact form will be live soon.';return}
+var d=new FormData(this);
+location.href='mailto:'+TO+'?subject='+encodeURIComponent('Quote request from '+d.get('n'))+'&body='+encodeURIComponent(d.get('m')+'\n\nReply to: '+d.get('e'));});
 </script>
 </body>
 </html>
